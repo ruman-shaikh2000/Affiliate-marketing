@@ -1,1 +1,1 @@
-# AffilliateMarketingFrontendMain
+# AffiliateMarketingFrontend
