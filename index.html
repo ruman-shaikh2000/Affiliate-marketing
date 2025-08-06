@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Raj Tupe | Portfolio</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="icon" type="image/x-icon" href="/images/briefcase-svgrepo-com.png">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="https://kit.fontawesome.com/f84f445020.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"
+    integrity="sha256-2Dbg51yxfa7qZ8CSKqsNxHtph8UHdgbzxXF9ANtyJHo=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css"
+    integrity="sha256-7jUS+MWeqkFdmW9ozkZ7mPagz+QmMbsBlt+Q3MsE+FU=" crossorigin="anonymous">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+  <link rel="stylesheet" href="./style.css">
+
+
+  <link rel="shortcut icon" href="./images/img_56497.webp" type="image/x-icon">
+</head>
+
+<body id="top">
+
+  <!--** Navbar **-->
+
+  <header class="header">
+    <a href="#" class="logo">Revanth</a>
+    <i class='bx bx-menu' id="menu-icon"></i>
+
+    <nav id="nav-menu">
+      <a class="nav-link projects" href="project.html">Add Site</a>
+      <a class="nav-link projects" href="#projects">Products</a>
+      <a class="nav-link contact" href="#contact">Contact</a>
+      <a id="loginstatus">Login</a>
+    </nav>
+  </header>
+
+  <!--** Navbar Ends **-->
+
+  <!-- Project Starts -->
+
+
+  <section class="project" id="projects">
+    <h2 class="heading">
+      <span>Sites</span>
+    </h2>
+
+
+    <div class="project-container"></div>
+  </section>
+  <!--Project Ends -->
+
+
+
+  <!-- contact section start -->
+  <section class="contact nav-link" id="contact">
+    <div class="max-width">
+      <div class="contact-content">
+        <div class="column left">
+
+          <div class="icons">
+            <div class="row">
+              <i class="fa-brands fa-github"></i>
+              <div class="info">
+                <div class="sub-title"><a id="contact-github" class="sub-title1" target="_blank"
+                    href="https://github.com/bethimanideep">
+                    <h1>github.com/<b>bethimanideep</b>
+                  </a></h1>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <i class="fa-brands fa-linkedin"></i>
+              <div class="info">
+                <div class="sub-title"><a id="contact-linkedin" class="sub-title1" target="_blank"
+                    href="https://www.linkedin.com/in/bethi-manideep-84a594238/">
+                    <h1>linkedin.com/in/<b>bethi-manideep-84a594238</b>
+                  </a></h1>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <i class="fa-solid fa-envelope"></i>
+              <div class="info">
+                <div id="contact-email" class="sub-title1" onclick="myFunction()">
+                  <h1><b>bethimanideep</b>@gmail.com</h1>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <i class="fa-solid fa-phone"></i>
+              <div class="info">
+                <div id="contact-phone" class="sub-title1">
+                  <h1> <b>+91 8106340328</b>
+                </div>
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column right">
+          <form>
+            <div class="fields">
+              <div class="field name">
+                <input type="text" name="name" placeholder="Name" id="name">
+              </div>
+              <div class="field email">
+                <input type="email" name="email" placeholder="Email" id="email" required>
+              </div>
+            </div>
+            <div class="field">
+              <input type="text" name="subject" placeholder="Subject" id="subject" required>
+            </div>
+            <div class="field textarea">
+              <textarea cols="30" rows="10" name="content" id="content" placeholder="Message.." required></textarea>
+            </div>
+            <div class="button-area">
+              <button id="sendemailbtn">Send message</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <script src="index.js"></script>
+</body>
+
+
+
+
+
+
+<script>
+  // Clear a specific item from localStorage
+  let name = document.getElementById("name")
+  let email = document.getElementById("email")
+  let subject = document.getElementById("subject")
+  let content = document.getElementById("content")
+  let sendemailbtn = document.getElementById("sendemailbtn")
+
+
+  sendemailbtn.addEventListener("click", (e) => {
+    e.preventDefault()
+    console.log("clicked")
+    if (name.value !== "" && email.value !== "" && subject.value !== "" && content.value !== "") {
+
+      let obj = {
+        subject: `SUBJECT:-${subject.value} NAME:-${name.value} EMAIL:- ${email.value}`,
+        content: content.value
+      }
+      fetch('https://affiliate-marketing-backend.vercel.app/email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(obj),
+      })
+        .then(response => response.json())
+        .then(result => {
+          console.log('Email sent successfully:', result);
+          if (result == "emailsent") {
+            Swal.fire(
+              'Good job!',
+              'Email Sent',
+              'success'
+            )
+          }else{
+            Swal.fire({
+        title: 'Error!',
+        text: 'Error in Sending Email',
+        icon: 'error',
+        confirmButtonText: 'Ok'
+      })
+          }
+          // Handle success (e.g., show a success message to the user)
+        })
+        .catch(error => {
+          console.error('Error sending email:', error);
+          // Handle error (e.g., show an error message to the user)
+        });
+    } else {
+      Swal.fire({
+        title: 'Error!',
+        text: 'Enter Required Fields',
+        icon: 'error',
+        confirmButtonText: 'Ok'
+      })
+    }
+  })
+
+
+  localStorage.removeItem("modifyingdata");
+  let token = localStorage.getItem("token");
+  let loginstatus = document.getElementById("loginstatus")
+  if (token) {
+    loginstatus.innerText = "Logout"
+  }
+  loginstatus.addEventListener("click", (e) => {
+    e.preventDefault()
+    if (token) {
+      localStorage.clear()
+      loginstatus.innerText = "Login"
+      Swal.fire(
+        'Good job!',
+        'Logging Successful!',
+        'success'
+      )
+      setTimeout(() => {
+        window.location = "index.html"
+      }, 1000);
+
+    } else {
+      window.location = "login.html"
+    }
+
+  })
+  console.log(token, "token");
+  const projectcontainer = document.querySelector(".project-container")
+  async function fetchData() {
+    try {
+      const response = await fetch("https://affiliate-marketing-backend.vercel.app/projects");
+      const data = await response.json();
+      createdata(data)
+
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }
+
+  function createdata(data) {
+    projectcontainer.innerHTML = null
+    data.forEach((ele, i) => {
+      const card = document.createElement("div")
+      const img = document.createElement("img")
+      const projectlayer = document.createElement("div")
+      const h3 = document.createElement("h3")
+      const p = document.createElement("p")
+      const projectlinks = document.createElement("div")
+      const btn1 = document.createElement("button")
+      const a1 = document.createElement("a")
+
+
+      card.classList.add("project-card");
+      projectlayer.classList.add("project-layer");
+      h3.classList.add("project-title");
+      p.classList.add("project-description");
+      projectlinks.classList.add("projectlinks");
+      a1.classList.add("project-github-link");
+
+      img.src = ele.image
+      h3.innerText = ele.title
+      p.innerHTML = ele.description
+      a1.innerText = "All Products"
+      a1.href = "products.html"
+
+
+      btn1.append(a1)
+      projectlinks.append(btn1)
+      projectlayer.append(h3, p, projectlinks)
+      card.append(img, projectlayer)
+      projectcontainer.append(card)
+
+
+
+
+      if (token) {
+        const btn2 = document.createElement("button")
+        const a2 = document.createElement("a")
+        const btn3 = document.createElement("button")
+        const a3 = document.createElement("a")
+
+        a2.classList.add("project-deployed-link");
+        a3.classList.add("project-deployed-link");
+
+        a2.innerText = "Edit"
+        a3.innerText = "Delete"
+        btn2.append(a2)
+        btn3.append(a3)
+        projectlinks.append(btn2, btn3)
+
+        btn2.addEventListener("click", (e) => {
+          e.preventDefault()
+          localStorage.setItem("modifyingdata", JSON.stringify(ele))
+          window.location = "edit.html"
+        })
+        btn3.addEventListener("click", (e) => {
+          e.preventDefault()
+          fetch(`https://affiliate-marketing-backend.vercel.app/projects/${ele._id}`, {
+            method: 'DELETE',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `${token}`, // Include the JWT token in the Authorization header
+            },
+          })
+            .then(response => response.json())
+            .then(result => {
+              console.log(result, "yyyy");
+              if (result.error) {
+                Swal.fire({
+                  title: 'Error!',
+                  text: 'Error Deleting',
+                  icon: 'error',
+                  confirmButtonText: 'Ok'
+                })
+              } else {
+                createdata(result)
+                Swal.fire({
+                  title: 'Good job!',
+                  text: 'Delete Successful',
+                  icon: 'success',
+                });
+                setTimeout(() => {
+                  Swal.close();
+                }, 1000);
+              }
+              // Perform any additional actions after successful deletion
+            })
+            .catch(error => {
+              console.error('Error deleting project:', error);
+            });
+        })
+
+      }
+
+    });
+  }
+  // Call the fetchData function
+  fetchData();
+
+</script>
+
+</html>
